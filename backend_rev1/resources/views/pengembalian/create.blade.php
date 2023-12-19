@@ -10,6 +10,13 @@
     <br>
     <p id="rencana_tanggal_kembali" hidden>{{ $dataSewa[0]->rencana_tanggal_kembali }}</p>
     <p id="rencana_jam_kembali" hidden>{{ $dataSewa[0]->rencana_jam_kembali }}</p>
+    {{-- @php
+        $tanggalMulai = \Carbon\Carbon::parse($dataSewa[0]->rencana_tanggal_kembali);
+        $tanggalSelesai = \Carbon\Carbon::parse($peminjaman->rencana_tanggal_kembali);
+        $hargaPerHari = $mobil->harga;
+        $selisihHari = $tanggalSelesai->diffInDays($tanggalMulai);
+        $totalHarga = $selisihHari * $hargaPerHari;
+    @endphp --}}
     <p>Denda Waktu : Rp. <span id="denda"></span></p>
     <input type="number" name="denda_waktu" id="denda_waktu" value="{{ number_format($dataSewa[0]->denda_waktu) }}" hidden><br>
     <label for="kondisi">Kondisi</label>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="shortcut icon" href="./assets/icon/easyCarHire.png" type="image/x-icon">
+    <title>EasyCarHire</title>
+    <style>
+        .myNav {
+            background: transparent;
+            transition: 0.3s ease-in-out;
+        }
+        
+        .nav-active {
+            background: rgba(218, 212, 181, 0.93);
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        .navbar-nav {
+            background-color: #952323;
+            font-family: 'poppins';
+        }
+
+        @media (max-width: 960px) {
+            .navbar-nav {
+                background: transparent;
+            }
+
+            .nav-item {
+                background-color: #952323;
+                padding: 5px;
+                padding-left: 10px;
+                border-radius: 10px;
+            }
+        }
+
+        .scale-up-center {
+            -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+                animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+
+        @-webkit-keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                        transform: scale(0.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+            }
+        }
+        @keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                    transform: scale(0.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                    transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #DAD4B5;">
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light myNav pt-3">
+        <div class="container">
+          <a class="navbar-brand fw-bold fs-4 scale-up-center" style="font-family: 'poppins'; color: #952323;" href="#"><img src="./assets/icon/easyCarHire.png" alt="EasyCarHire" style="width: 50px;" class="img-fluid me-2">EasyCarHire</a>
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+              aria-expanded="false" aria-label="Toggle navigation" onclick="bgShow()">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+              <ul class="navbar-nav mx-auto mt-2 mt-lg-0 fs-6 rounded-3 py-1 px-3 gap-4">
+                  <li class="nav-item">
+                      <a class="nav-link text-white fw-semibold" href="#" aria-current="page">Beranda <span class="visually-hidden">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Layanan</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Tentang Kami</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Artikel</a>
+                  </li>
+              </ul>
+              <form class="d-flex my-2 my-lg-0 gap-2" style="font-family: 'poppins';">
+                  <button class="btn my-2 my-sm-0 text-white" style="background-color: #952323;" type="submit">Masuk</button>
+                  <button class="btn my-2 my-sm-0 text-white" style="background-color: #952323;" type="submit">Daftar</button>
+              </form>
+          </div>
+    </div>
+  </nav>
+  <!-- navbar end -->
+
+  <div class="container">
+    <div class="card my-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3 col-sm-5 d-flex justify-content-center">
+                    <img src="./assets/img/beranda.png" alt="..." style="width: 200px;" class="rounded-3">
+                </div>
+                <div class="col-md-9 col-sm-5">
+                    <div class="row d-flex flex-column">
+                        <div class="col">
+                            <h1 class="fw-bold text-center" style="color: #952323; font-family: 'poppins';">Tempat Rental A</h1>
+                        </div>
+                        <div class="col">
+                            <p class="fw-semibold mb-0 pb-0 text-center" style="color: #952323;">Alamat nya disini bosh</p>
+                        </div>
+                        <div class="col">
+                            <p class="fw-semibold text-center" style="color: #952323;"><img src="./assets/icon/call-red.png" alt="..." style="width: 25px;" class="pe-1">080808080</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex flex-column">
+                <div class="col-md-12 d-flex mt-5">
+                    <p class="fw-semibold px-4 py-2 rounded-1" style="background-color: #952323; color: #ffffff; font-family: 'poppins';">Unit Tersedia</p>
+                </div>
+                <div class="col mb-3">
+                    <div class="card" style="background-color: #952323; color: #ffffff; font-family: 'poppins';">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-5 d-flex justify-content-center mb-2">
+                                    <img src="./assets/img/beranda.png" alt="..." style="width: 200px;" class="rounded-3">
+                                </div>
+                                <div class="col-md-7 col-sm-5">
+                                    <p class="fs-5 fw-semibold mb-0">Nama Mobil : Mobil 1</p>
+                                    <p class="fs-5 fw-semibold mb-0">Jenis Mobil : Mobil 1</p>
+                                    <p class="fs-5 fw-semibold mb-0">Warna Mobil : Mobil 1</p>
+                                    <p class="fs-5 fw-semibold mb-0">Harga (per hari) : 100000</p>
+                                    <p class="fs-5 fw-semibold mb-0">Stok : 90</p>
+                                </div>
+                                <div class="col-md-2 col-sm-5 d-flex flex-column gap-2 justify-content-center align-items-center">
+                                    <a href="#" class="btn fw-semibold px-3" style="background-color: #ffffff; color: #952323;">Sewa</a>
+                                    <a href="#" class="btn fw-semibold px-3" style="background-color: #ffffff; color: #952323;">Hapus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="card" style="background-color: #952323; color: #ffffff; font-family: 'poppins';">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-5 d-flex justify-content-center mb-2">
+                                    <img src="./assets/img/beranda.png" alt="..." style="width: 200px;" class="rounded-3">
+                                </div>
+                                <div class="col-md-7 col-sm-5">
+                                    <p class="fs-5 fw-semibold mb-0">Nama Mobil : Mobil 1</p>
+                                    <p class="fs-5 fw-semibold mb-0">Jenis Mobil : Mobil 1</p>
+                                    <p class="fs-5 fw-semibold mb-0">Warna Mobil : Mobil 1</p>
+                                    <p class="fs-5 fw-semibold mb-0">Harga (per hari) : 100000</p>
+                                    <p class="fs-5 fw-semibold mb-0">Stok : 90</p>
+                                </div>
+                                <div class="col-md-2 col-sm-5 d-flex flex-column gap-2 justify-content-center align-items-center">
+                                    <a href="#" class="btn fw-semibold px-3" style="background-color: #ffffff; color: #952323;">Sewa</a>
+                                    <a href="#" class="btn fw-semibold px-3" style="background-color: #ffffff; color: #952323;">Hapus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="card" style="background-color: #952323; color: #ffffff; font-family: 'poppins';">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-5 d-flex justify-content-center mb-2">
+                                    <img src="./assets/img/beranda.png" alt="..." style="width: 200px;" class="rounded-3">
+                                </div>
+                                <div class="col-md-7 col-sm-5">
+                                    <p class="fs-5 fw-semibold mb-0">Nama Mobil : Mobil 1</p>
+                                    <p class="fs-5 fw-semibold mb-0">Jenis Mobil : Mobil 1</p>
+                                    <p class="fs-5 fw-semibold mb-0">Warna Mobil : Mobil 1</p>
+                                    <p class="fs-5 fw-semibold mb-0">Harga (per hari) : 100000</p>
+                                    <p class="fs-5 fw-semibold mb-0">Stok : 90</p>
+                                </div>
+                                <div class="col-md-2 col-sm-5 d-flex flex-column gap-2 justify-content-center align-items-center">
+                                    <a href="#" class="btn fw-semibold px-3" style="background-color: #ffffff; color: #952323;">Sewa</a>
+                                    <a href="#" class="btn fw-semibold px-3" style="background-color: #ffffff; color: #952323;">Hapus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script>
+        const navbar = document.querySelector('.myNav');
+        window.onscroll = () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('nav-active');
+            } else {
+                navbar.classList.remove('nav-active');
+            }
+        };
+        bgShow = () => {
+            navbar.classList.toggle('nav-active');
+        }
+    </script>
+</body>
+</html>

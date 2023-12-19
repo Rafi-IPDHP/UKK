@@ -49,16 +49,22 @@ class TempatRentalController extends Controller
             'nama' => 'required',
             'no_telp' => 'required',
             'alamat' => 'required',
-            'images' => 'required',
+            'images' => 'sometimes',
         ]);
 
         $file = $request->file('images');
-        $result = CloudinaryStorage::replace($tempatRental->image, $file->getRealPath(), $file->getClientOriginalName());
+        if ($file) {
+            $result = CloudinaryStorage::replace($tempatRental->image, $file->getRealPath(), $file->getClientOriginalName());
+            $tempatRental->update([
+                'images' => $result->getSecurePath(),
+            ]);
+        }
+        // $result = CloudinaryStorage::replace($tempatRental->image, $file->getRealPath(), $file->getClientOriginalName());
         $tempatRental->update([
             'nama' => $request->input('nama'),
             'no_telp' => $request->input('no_telp'),
             'alamat' => $request->input('alamat'),
-            'images' => $result->getSecurePath(),
+            // 'images' => $result->getSecurePath(),
         ]);
 
         return redirect()->route('tempat-rental.index');

@@ -5,7 +5,7 @@
     <input type="number" name="no_telp" value="{{ $tempatRental->no_telp }}">
     <textarea name="alamat" cols="30" rows="10">{{ $tempatRental->alamat }}</textarea>
     <img src="{{ $tempatRental->images }}" alt="..." style="width: 150px; height: 150px;">
-    <input type="file" name="images" id="images">
+    <input type="file" value="{{ $tempatRental->images }}" name="images" id="images">
     <button type="submit">KIRIM</button>
 </form>
 <a href="{{ route('dashboard') }}">Back</a>

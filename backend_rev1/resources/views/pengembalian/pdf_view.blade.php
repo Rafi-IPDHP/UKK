@@ -1,4 +1,4 @@
-<h1>Lagi Dipinjam</h1><br>
+<h1 style="text-align: center">Lagi Dipinjam</h1><br>
 <table border="1">
     <thead>
         <th>ID Peminjaman</th>

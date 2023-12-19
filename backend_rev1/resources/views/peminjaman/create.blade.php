@@ -38,7 +38,35 @@
     <input type="date" name="rencana_tanggal_kembali" id="rencana_tanggal_kembali" min="" onchange="gantiTanggal()">
     <br>
     <label for="rencana_jam_kembali">Jam Kembali</label>
-    <input type="text" name="rencana_jam_kembali" id="rencana_jam_kembali" disabled>
+    {{-- <input type="text" name="rencana_jam_kembali" id="rencana_jam_kembali" disabled> --}}
+    <select name="rencana_jam_kembali" id="rencana_jam_kembali" onchange="rencanaJamKembali()" hidden>
+        <option disabled>pilih jam pinjam</option>
+        <option value="00:00:00">00:00:00</option>
+        <option value="01:00:00">01:00:00</option>
+        <option value="02:00:00">02:00:00</option>
+        <option value="03:00:00">03:00:00</option>
+        <option value="04:00:00">04:00:00</option>
+        <option value="05:00:00">05:00:00</option>
+        <option value="06:00:00">06:00:00</option>
+        <option value="07:00:00">07:00:00</option>
+        <option value="08:00:00">08:00:00</option>
+        <option value="09:00:00">09:00:00</option>
+        <option value="10:00:00">10:00:00</option>
+        <option value="11:00:00">11:00:00</option>
+        <option value="12:00:00">12:00:00</option>
+        <option value="13:00:00">13:00:00</option>
+        <option value="14:00:00">14:00:00</option>
+        <option value="15:00:00">15:00:00</option>
+        <option value="16:00:00">16:00:00</option>
+        <option value="17:00:00">17:00:00</option>
+        <option value="18:00:00">18:00:00</option>
+        <option value="19:00:00">19:00:00</option>
+        <option value="20:00:00">20:00:00</option>
+        <option value="21:00:00">21:00:00</option>
+        <option value="22:00:00">22:00:00</option>
+        <option value="23:00:00">23:00:00</option>
+    </select>
+    <p id="balik"></p>
     <br>
     <input type="number" name="denda_waktu" value="0" hidden>
     <input type="number" name="denda_kondisi" value="0" hidden>
@@ -121,8 +149,17 @@
         }
     }
 
-    let rencanaJamKembali = () => {
-        jamKembali.value = jamPinjamSelect.value
+    let balik = document.getElementById('balik')
+
+    rencanaJamKembali = () => {
+        for (let i = 0; i < jamPinjamSelect.options.length; i++) {
+            if(jamKembali.options[i].value == jamPinjamSelect.value) {
+                jamKembali.options[i].selected = true
+                balik.innerHTML = jamKembali.options[i].value
+            }
+            console.log(jamKembali.options[i].value)
+        }
+        // jamKembali.value = jamPinjamSelect.value
     }
 
     gantiTanggal()

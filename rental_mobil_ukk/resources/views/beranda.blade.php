@@ -1,0 +1,486 @@
+@extends('template.master')
+@section('title', '')
+@push('css')
+<style>
+    .background-container {
+        background-color: rgba(218, 212, 181, 0.65);
+        height: 100vh;
+        font-family: 'poppins';
+        color: #952323;
+    }
+
+    .myNav {
+        background: transparent;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-active {
+        background: rgba(218, 212, 181, 0.93);
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .navbar-nav {
+        background-color: #952323;
+        font-family: 'poppins';
+    }
+
+    .cta {
+        font-size: 65px;
+        max-width: 95%;
+    }
+
+    .bg-third-content {
+        background-color: rgba(255, 255, 255, 0.8);
+        height: 100vh;
+    }
+
+    .third-content {
+        height: 100vh;
+        background-image: url('./assets/icon/easyCarHire.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .fourth-content1 {
+        display: none;
+    }
+
+    .bg-fourth-content {
+        background-color: #952323;
+        color: #ffffff;
+        font-family: 'poppins';
+        height: 85vh;
+    }
+
+    .fifth-content {
+        height: 145vh;
+        background-image: url('./assets/icon/easyCarHire.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 700px;
+    }
+
+    .bg-fifth-content {
+        background-color: rgba(218, 212, 181, 0.8);
+        height: 145vh;
+    }
+
+    .bg-footer {
+        background-color: rgba(255, 255, 255, 0.8);
+        height: 50vh;
+    }
+
+    .footer {
+        height: 50vh;
+        background-image: url('./assets/icon/easyCarHire.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .lihat-semua:hover {
+        font-weight: 500;
+    }
+
+    @media screen and (max-width: 960px) {
+        .cta {
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .navbar-nav {
+            background: transparent;
+        }
+
+        .nav-item {
+            background-color: #952323;
+            padding: 5px;
+            padding-left: 10px;
+            border-radius: 10px;
+        }
+
+        .third-content {
+            height: 200vh;
+        }
+
+        .bg-third-content {
+            height: 200vh;
+        }
+
+        .fourth-content {
+            display: none;
+        }
+
+        .fourth-content1 {
+            display: block;
+        }
+
+        .bg-fourth-content {
+            height: 125vh;
+        }
+
+        .fifth-content {
+            height: fit-content;
+            background-size: contain;
+        }
+
+        .bg-fifth-content {
+            height: fit-content;
+        }
+
+        .text-footer {
+            margin-bottom: 10px;
+        }
+    }
+
+    .second-content {
+        font-family: 'poppins';
+    }
+
+    @media (min-width: 1500px) {
+        .second-content {
+            display: inline;
+        }
+    }
+
+    .scale-up-center {
+        -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    @-webkit-keyframes scale-up-center {
+        0% {
+            -webkit-transform: scale(0.5);
+                    transform: scale(0.5);
+        }
+        100% {
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+        }
+    }
+    @keyframes scale-up-center {
+        0% {
+            -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+        }
+        100% {
+            -webkit-transform: scale(1);
+                transform: scale(1);
+        }
+    }
+
+    .hr-footer {
+        border: 1px solid #952323;
+        border-radius: 5px;
+        opacity: 1;
+    }
+</style>
+@endpush
+@section('content')
+<div style="height: 100vh; background-image: url('./assets/img/beranda.png'); background-repeat: no-repeat; background-size: cover; background-position: top;">
+    <div class="background-container">
+    <!-- navbar start -->
+    @include('template.components.navbar')
+    <!-- navbar end -->
+
+
+        <div class="container-fluid h-100 d-flex flex-column justify-content-center align-items-start pt-5">
+            <div class="row d-flex flex-column">
+                <div class="col-md-7">
+                    <h1 class="fw-bold cta">"PILIH MOBIL MU HANYA DENGAN SATU KALI KLIK"</h1>
+                </div>
+                <div class="col d-flex justify-content-center align-items-center pt-4">
+                    <a href="{{ route('tempat-rental.all') }}" class="btn fw-semibold text-nowrap" style="background-color: #952323; color: #ffffff; opacity: 1;">
+                        <div class="row d-flex">
+                            <div class="col-auto d-flex">
+                                <img src="{{ asset('assets/icon/home.png') }}" alt="..." style="width: 40px;" class="img-fluid me-0 pe-0 scale-up-center">
+                            </div>
+                            <div class="col d-flex ms-0 ps-0">
+                                <span style="font-size: 12px;">PILIH TEMPAT<br>RENTAL MOBIL</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- second content start -->
+<div class="second-content container-xxl mx-0 ps-0">
+    <div class="row">
+        <div class="col-md-6 col-sm-5 text-white" style="background-color: #952323;">
+            <div class="container py-4 d-flex flex-column justify-content-center align-items-center">
+                <h3 class="mb-0 pb-0 fw-semibold">500.000</h3>
+                <h3 class="mt-0 pt-0 fw-semibold">Unit Terlaris</h3>
+                <h6 class="fw-normal pb-0 mb-1">saat ini kami Memiliki 500.000</h6>
+                <h6 class="fw-normal">Unit Terlaris</h6>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-5" style="background-color: #DAD4B5; color: #952323;">
+            <div class="container py-4 d-flex flex-column justify-content-center align-items-center">
+                <h3 class="mb-0 pb-0 fw-semibold">100</h3>
+                <h3 class="mt-0 pt-0 fw-semibold">Perusahaan Bekerja Sama</h3>
+                <h6 class="fw-normal pb-0 mb-1">Ada  100 Perusahaan Besar</h6>
+                <h6 class="fw-normal">yang Bekerja Sama Dengan Kami</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- second content end -->
+
+<!-- third content start -->
+<div class="third-content" id="tentang-kami">
+    <div class="bg-third-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-5 d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+                    <img src="{{ asset('assets/icon/easyCarHire.png') }}" alt="EasyCarHire" class="img-fluid" style="width: 300px;">
+                    <h1 class="fw-bold" style="color: #952323; font-family: 'poppins'; font-size: 60px;">EasyCarHire</h1>
+                </div>
+                <div class="col-md-6 col-sm-5 d-flex align-items-center" style="color: #952323; font-family: 'poppins';">
+                    <div class="row d-flex flex-column">
+                        <div class="col">
+                            <p class="fw-semibold fs-5 ms-3">Tentang Kami</p>
+                        </div>
+                        <div class="col d-flex">
+                            <img src="{{ asset('assets/icon/line.png') }}" alt="..." class="img-fluid object-fit-contain pb-5">
+                            <h2 class="pb-1 ps-2">Kami Menyediakan Mobil Untuk Anda Bergaya</h2>
+                        </div>
+                        <div class="col">
+                            <p><span class="fw-bold">EasyCarHire </span>adalah tempat di Penyewaan Mobil Terbaik Di Indonesia, Kami Memiliki Lebih dari 500.000 Unit Mobil, Yang siap Memanjakan Mata anda. Mobil Yang kami Memiliki di mulai dari Harga Terendah Hingga Harga yang tertinggi. Sistem yang kami punya, sudah teruji secara Profesional, dan sudah lebih dari 100 perusahaan mobil terbesar di dunia, bekerja sama dengan kami. jangan ragu untuk menyewa mobil di sini, karena sistem keamanan mobil kami sudah teruji dan terawat dengan baik.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- third content end -->
+
+<!-- proses penyewaan start -->
+<div class="bg-fourth-content">
+    <div class="container pt-5 fourth-content">
+        <h2 class="fw-bold text-center">Proses Penyewaan Mobil</h2>
+        <div class="row d-flex justify-content-center align-items-center mt-5">
+            <div class="col-md-4 col-sm-5 d-flex justify-content-center align-items-center" style="gap: 110px;">
+                <img src="{{ asset('assets/img/proses1.png') }}" alt="" style="width: 80px;">
+                <img src="{{ asset('assets/img/proses2.png') }}" alt="" style="width: 80px;">
+            </div>
+            <div class="col-md-4 col-sm-5 d-flex justify-content-center align-items-center" style="gap: 110px;">
+                <img src="{{ asset('assets/img/proses3.png') }}" alt="" style="width: 80px;">
+                <img src="{{ asset('assets/img/proses4.png') }}" alt="" style="width: 80px;">
+            </div>
+            <div class="col-md-4 col-sm-5 d-flex justify-content-center align-items-center" style="gap: 110px;">
+                <img src="{{ asset('assets/img/proses5.png') }}" alt="" style="width: 80px;">
+                <img src="{{ asset('assets/img/proses6.png') }}" alt="" style="width: 80px;">
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mt-2">
+            <div class="col-md-4 col-sm-5 d-flex justify-content-center align-items-center" style="gap: 90px;">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="mt-2 text-center">Daftar & Login</h5>
+                    </div>
+                    <div class="col">
+                        <h5 class="mt-2 text-center">Proses Verifikasi Akun</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-5 d-flex justify-content-center align-items-center" style="gap: 90px;">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="mt-2 text-center">Pilih Tempat Penyewaan</h5>
+                    </div>
+                    <div class="col">
+                        <h5 class="mt-2 text-center">Pilih Mobil Anda</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-5 d-flex justify-content-center">
+                <div class="row" style="gap: 75px;">
+                    <div class="col">
+                        <h5 class="mt-2 text-center">Transaksi</h5>
+                    </div>
+                    <div class="col">
+                        <h5 class="mt-2 text-start">Selesai</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex">
+            <div class="col-md-4 col-sm-5 d-flex" style="gap: 90px;">
+                <div class="row">
+                    <div class="col">
+                        <p class="text-center mt-3">Lakukan Login Dan Registrasi untuk Melakukan Verifikasi</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-center mt-3">Sistem Akan Melakukan verfifikasi Akun</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-5 d-flex" style="gap: 90px;">
+                <div class="row">
+                    <div class="col">
+                        <p class="text-center mt-3">Pilih Tempat Penyewaan Mobil yang terdekat dari tempat anda</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-center mt-3">Kami Memiliki Lebih Dari 500.000 Unit yang bisa memanjakan Mata anda, sehingga anda bisa memilih mobil sesuka anda</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-5 d-flex justify-content-center" style="gap: 90px;">
+                <div class="row">
+                    <div class="col">
+                        <p class="text-center mt-3">Lakukan Transaksi Jika anda sudan berhasil Memilih Mobil yang akan anda sewa</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-center mt-3">Proses Selesai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container fourth-content1">
+        <h2 class="fw-bold text-center pt-5 pb-4">Proses Penyewaan Mobil</h2>
+        <div class="col-md-12 col-sm-5 d-flex justify-content-center mb-3">
+            <div class="row">
+                <div class="col d-flex flex-column align-items-center">
+                    <img src="{{ asset('assets/img/proses1.png') }}" alt="" style="width: 80px;">
+                    <h5 class="mt-2 text-center">Daftar & Login</h5>
+                </div>
+                <div class="col d-flex flex-column align-items-center">
+                    <img src="{{ asset('assets/img/proses2.png') }}" alt="" style="width: 80px;">
+                    <h5 class="mt-2 text-center">Proses Verifikasi Akun</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-5 d-flex justify-content-center mb-3">
+            <div class="row">
+                <div class="col d-flex flex-column align-items-center">
+                    <img src="{{ asset('assets/img/proses3.png') }}" alt="" style="width: 80px;">
+                    <h5 class="mt-2 text-center">Pilih Tempat Penyewaan</h5>
+                </div>
+                <div class="col d-flex flex-column align-items-center">
+                    <img src="{{ asset('assets/img/proses4.png') }}" alt="" style="width: 80px;">
+                    <h5 class="mt-2 text-center">Pilih Mobil Anda</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-5 d-flex justify-content-center">
+            <div class="row" style="gap: 100px;">
+                <div class="col d-flex flex-column align-items-center">
+                    <img src="{{ asset('assets/img/proses5.png') }}" alt="" style="width: 80px;">
+                    <h5 class="mt-2 text-center">Transaksi</h5>
+                </div>
+                <div class="col d-flex flex-column align-items-center">
+                    <img src="{{ asset('assets/img/proses6.png') }}" alt="" style="width: 80px;">
+                    <h5 class="mt-2 text-center">Selesai</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- proses penyewaan end -->
+
+<!-- fifth content start -->
+<div class="fifth-content">
+    <div class="bg-fifth-content py-5">
+        <div class="container-fluid">
+            <h1 class="text-center fw-bold" style="color: #952323;">Pilih Mobil Anda</h1>
+            <div class="row d-flex">
+                <div class="col-md-12 col-sm-5 d-flex justify-content-between mt-2">
+                    <p class="fw-semibold px-4 py-2 rounded-1" style="background-color: #952323; color: #ffffff; font-family: 'poppins';">Unit Terbanyak</p>
+                    {{-- <a href="#" class="pe-3 lihat-semua" style="color: #952323; text-decoration: none;">Lihat Semua <img src="./assets/icon/right-arrow.png" alt="..." style="width: 25px;" class="ps-1"></a> --}}
+                </div>
+            </div>
+            <div class="row d-flex mb-5">
+                <div class="col">
+                    <div class="row d-flex justify-content-center">
+                        @foreach ($mobils as $mobil)
+                        <div class="col-md-3 col-sm-5 d-flex justify-content-center mt-3">
+                            <div class="card" style="background-color: #952323; font-family: 'poppins';">
+                                <div class="card-body">
+                                    <h4 class="card-title"><img src="{{ $mobil->images }}" alt="..." style="width: 200px; height: 120px;" class="rounded-2"></h4>
+                                    <p class="card-text fs-5 fw-semibold text-white text-center">{{ $mobil->nama }}</p>
+                                    <a href="{{ route('tempat-rental.show', $mobil->tempat_rental_id) }}" class="btn bg-white fw-semibold px-5" style="color: #952323;">Lihat Unit <img src="{{ asset('assets/icon/right-arrow.png') }}" alt="..." style="width: 25px;" class="ps-1"></a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <h1 class="text-center mt-2 fw-bold" style="color: #952323;">Pilih Tempat Rental Mobil Anda</h1>
+            <div class="row d-flex">
+                <div class="col-md-12 col-sm-5 d-flex justify-content-between mt-2">
+                    <p class="fw-semibold px-4 py-2 rounded-1" style="background-color: #952323; color: #ffffff; font-family: 'poppins';">Tempat Penyewaan</p>
+                    <a href="{{ route('tempat-rental.all') }}" class="pe-3 lihat-semua" style="color: #952323; text-decoration: none;">Lihat Semua <img src="./assets/icon/right-arrow.png" alt="..." style="width: 25px;" class="ps-1"></a>
+                </div>
+            </div>
+            <div class="row d-flex">
+                <div class="col">
+                    <div class="row d-flex justify-content-center">
+                        @foreach ($tempat_rentals as $tempat_rental)
+                        <div class="col-md-3 col-sm-5 d-flex justify-content-center mt-3">
+                            <div class="card" style="background-color: #952323; font-family: 'poppins';">
+                                <div class="card-body">
+                                    <h4 class="card-title"><img src="{{ $tempat_rental->images }}" alt="..." style="width: 200px;" class="rounded-2"></h4>
+                                    <p class="card-text fs-5 fw-semibold text-white text-center">{{ $tempat_rental->nama }}</p>
+                                    <a href="{{ route('tempat-rental.show', $tempat_rental->id) }}" class="btn bg-white fw-semibold px-4 text-center" style="color: #952323;">Lihat Tempat <img src="{{ asset('assets/icon/right-arrow.png') }}" alt="..." style="width: 25px;" class="ps-1"></a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- fifth content end -->
+<!-- footer start -->
+<div class="footer">
+    <div class="bg-footer">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col d-flex align-items-center mb-4">
+                    <img src="{{ asset('assets/icon/easyCarHire.png') }}" alt="..." style="width: 120px;">
+                    <p class="fw-bold fs-2 ms-2" style="font-family: 'poppins'; color: #952323;">EasyCarHire</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-5 text-footer">
+                    <p class="fw-semibold fs-3 mb-0 pb-0" style="font-family: 'poppins'; color: #952323;">Kami menyediakan mobil</p>
+                    <p class="fw-semibold fs-3 mb-0 pb-0" style="font-family: 'poppins'; color: #952323;">Untuk anda bergaya</p>
+                </div>
+                <div class="col-md-6 col-sm-5 d-flex justify-content-end align-items-end">
+                    <a href="https://wa.me/6282123947660/" class="btn mb-2" style="font-family: 'poppins'; color: #ffffff; background-color: #952323;"><img src="./assets/icon/call.png" alt="..." style="width: 25px;" class="pe-1">Gabung bersama kami</a>
+                </div>
+            </div>
+            <hr class="hr-footer">
+            <div class="row">
+                <div class="col">
+                    <p style="color: #952323; font-family: 'poppins';">&copy;2023 Copyright EasyCarHire</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer end -->
+@endsection
+@push('script')
+<script>
+    const navbar = document.querySelector('.myNav');
+    window.onscroll = () => {
+        if (window.scrollY > 10) {
+            navbar.classList.add('nav-active');
+        } else {
+            navbar.classList.remove('nav-active');
+        }
+    };
+    bgShow = () => {
+        navbar.classList.add('nav-active');
+    }
+</script>
+@endpush

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="shortcut icon" href="./assets/icon/easyCarHire.png" type="image/x-icon">
+    <title>EasyCarHire</title>
+    <style>
+        .rencana_jam_kembali {
+            background-color: #952323;
+            color: #ffffff;
+            height: 50px;
+        }
+
+        .rencana_jam_kembali::placeholder {
+            color: #ffffff;
+        }
+
+        .rencana_jam_kembali:focus {
+            background-color: #952323;
+            color: #ffffff;
+        }
+
+        .rencana_jam_kembali:disabled {
+            background-color: rgba(149, 35, 35, 0.8);
+        }
+
+        .myNav {
+            background: transparent;
+            transition: 0.3s ease-in-out;
+        }
+        
+        .nav-active {
+            background: rgba(218, 212, 181, 0.93);
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        .navbar-nav {
+            background-color: #952323;
+            font-family: 'poppins';
+        }
+
+        @media (max-width: 960px) {
+            .navbar-nav {
+                background: transparent;
+            }
+
+            .nav-item {
+                background-color: #952323;
+                padding: 5px;
+                padding-left: 10px;
+                border-radius: 10px;
+            }
+        }
+
+        .scale-up-center {
+            -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+                animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+
+        @-webkit-keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                        transform: scale(0.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+            }
+        }
+        @keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                    transform: scale(0.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                    transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light myNav pt-3">
+        <div class="container">
+          <a class="navbar-brand fw-bold fs-4 scale-up-center" style="font-family: 'poppins'; color: #952323;" href="#"><img src="./assets/icon/easyCarHire.png" alt="EasyCarHire" style="width: 50px;" class="img-fluid me-2">EasyCarHire</a>
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+              aria-expanded="false" aria-label="Toggle navigation" onclick="bgShow()">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+              <ul class="navbar-nav mx-auto mt-2 mt-lg-0 fs-6 rounded-3 py-1 px-3 gap-4">
+                  <li class="nav-item">
+                      <a class="nav-link text-white fw-semibold" href="#" aria-current="page">Beranda <span class="visually-hidden">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Layanan</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Tentang Kami</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Artikel</a>
+                  </li>
+              </ul>
+              <form class="d-flex my-2 my-lg-0 gap-2" style="font-family: 'poppins';">
+                  <button class="btn my-2 my-sm-0 text-white" style="background-color: #952323;" type="submit">Masuk</button>
+                  <button class="btn my-2 my-sm-0 text-white" style="background-color: #952323;" type="submit">Daftar</button>
+              </form>
+          </div>
+    </div>
+  </nav>
+  <!-- navbar end -->
+
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-5">
+            <p class="fs-3 py-3 rounded-3 text-white text-center fw-semibold mt-5" style="background-color: #952323; font-family: 'poppins';">Form Penyewaan</p>
+        </div>
+        <form action="#" method="post">
+            <div class="col-md-12 col-sm-5 mb-3 d-flex flex-column justify-content-center align-items-center">
+                <label for="tanggal_pinjam" class="form-label text-center fs-5 fw-semibold" style="color: #952323;">Tanggal Sewa</label>
+                <input type="date" name="tanggal_pinjam" class="form-control w-75" style="background-color: #952323; color: #ffffff; color-scheme: dark; height: 50px;" id="tanggal_pinjam">
+            </div>
+            <div class="col-md-12 col-sm-5 mb-3 d-flex flex-column justify-content-center align-items-center">
+                <label for="jam_pinjam" class="form-label text-center fs-5 fw-semibold" style="color: #952323;">Jam Sewa</label>
+                <select name="jam_pinjam" class="form-select w-75" style="height: 50px; background-color: #952323; color: #ffffff; background-image: none;" id="jam_pinjam" onchange="rencanaJamKembali()">
+                    <option disabled selected>pilih jam pinjam</option>
+                    <option value="00:00:00">00:00:00</option>
+                    <option value="01:00:00">01:00:00</option>
+                    <option value="02:00:00">02:00:00</option>
+                    <option value="03:00:00">03:00:00</option>
+                    <option value="04:00:00">04:00:00</option>
+                    <option value="05:00:00">05:00:00</option>
+                    <option value="06:00:00">06:00:00</option>
+                    <option value="07:00:00">07:00:00</option>
+                    <option value="08:00:00">08:00:00</option>
+                    <option value="09:00:00">09:00:00</option>
+                    <option value="10:00:00">10:00:00</option>
+                    <option value="11:00:00">11:00:00</option>
+                    <option value="12:00:00">12:00:00</option>
+                    <option value="13:00:00">13:00:00</option>
+                    <option value="14:00:00">14:00:00</option>
+                    <option value="15:00:00">15:00:00</option>
+                    <option value="16:00:00">16:00:00</option>
+                    <option value="17:00:00">17:00:00</option>
+                    <option value="18:00:00">18:00:00</option>
+                    <option value="19:00:00">19:00:00</option>
+                    <option value="20:00:00">20:00:00</option>
+                    <option value="21:00:00">21:00:00</option>
+                    <option value="22:00:00">22:00:00</option>
+                    <option value="23:00:00">23:00:00</option>
+                </select>
+            </div>
+            <div class="col-md-12 col-sm-5 mb-3 d-flex flex-column justify-content-center align-items-center">
+                <label for="rencama_tanggal_kembali" class="form-label text-center fs-5 fw-semibold" style="color: #952323;">Tanggal Kembali</label>
+                <input type="date" name="rencama_tanggal_kembali" class="form-control w-75" style="background-color: #952323; color: #ffffff; color-scheme: dark; height: 50px;" id="rencama_tanggal_kembali">
+            </div>
+            <div class="col-md-12 col-sm-5 mb-3 d-flex flex-column justify-content-center align-items-center">
+                <label for="balik" class="form-label text-center fs-5 fw-semibold" style="color: #952323;">Jam Kembali</label>
+                <input type="text" class="form-control rencana_jam_kembali w-75" id="balik" placeholder="00:00:00" disabled>
+            </div>
+            <div class="col-md-12 col-sm-5 mb-3 d-flex flex-column justify-content-center align-items-center">
+                <label for="harga" class="form-label text-center fs-5 fw-semibold" style="color: #952323;">Harga</label>
+                <input type="text" class="form-control rencana_jam_kembali w-75" id="harga" placeholder="Rp. 0" disabled>
+            </div>
+            <select name="rencana_jam_kembali" id="rencana_jam_kembali" onchange="rencanaJamKembali()" hidden>
+                <option disabled>pilih jam pinjam</option>
+                <option value="00:00:00">00:00:00</option>
+                <option value="01:00:00">01:00:00</option>
+                <option value="02:00:00">02:00:00</option>
+                <option value="03:00:00">03:00:00</option>
+                <option value="04:00:00">04:00:00</option>
+                <option value="05:00:00">05:00:00</option>
+                <option value="06:00:00">06:00:00</option>
+                <option value="07:00:00">07:00:00</option>
+                <option value="08:00:00">08:00:00</option>
+                <option value="09:00:00">09:00:00</option>
+                <option value="10:00:00">10:00:00</option>
+                <option value="11:00:00">11:00:00</option>
+                <option value="12:00:00">12:00:00</option>
+                <option value="13:00:00">13:00:00</option>
+                <option value="14:00:00">14:00:00</option>
+                <option value="15:00:00">15:00:00</option>
+                <option value="16:00:00">16:00:00</option>
+                <option value="17:00:00">17:00:00</option>
+                <option value="18:00:00">18:00:00</option>
+                <option value="19:00:00">19:00:00</option>
+                <option value="20:00:00">20:00:00</option>
+                <option value="21:00:00">21:00:00</option>
+                <option value="22:00:00">22:00:00</option>
+                <option value="23:00:00">23:00:00</option>
+            </select>
+            <input type="number" name="denda_waktu" value="0" hidden>
+            <input type="number" name="denda_kondisi" value="0" hidden>
+            <input type="text" name="status" value="belum dikembalikan" hidden>
+            <div class="col-md-12 col-sm-5 my-5 d-flex flex-column justify-content-center align-items-center">
+                <a href="#" class="btn text-white fw-semibold px-5 py-2 fs-5" style="background-color: #952323; font-family: 'poppins';">Sewa</a>
+            </div>
+        </form>
+      </div>
+  </div>
+    
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        const navbar = document.querySelector('.myNav');
+
+        let jamPinjamSelect = document.getElementById('jam_pinjam');
+        let jamKembali = document.getElementById('rencana_jam_kembali');
+        let balik = document.getElementById('balik');
+
+        let today = new Date()
+        let year = today.getFullYear();
+        let month = String(today.getMonth() + 1).padStart(2, '0');
+        let day = String(today.getDate()).padStart(2, '0');
+        let hariIni = `${year}-${month}-${day}`
+
+        window.onscroll = () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('nav-active');
+            } else {
+                navbar.classList.remove('nav-active');
+            }
+        };
+        bgShow = () => {
+            navbar.classList.toggle('nav-active');
+        }
+
+        rencanaJamKembali = () => {
+        for (let i = 0; i < jamPinjamSelect.options.length; i++) {
+            if(jamKembali.options[i].value == jamPinjamSelect.value) {
+                jamKembali.options[i].selected = true
+                balik.value = jamKembali.options[i].value
+            }
+            console.log(jamKembali.options[i].value)
+        }
+
+        function disablePastHours() {
+            for (let i = 0; i < jamPinjamSelect.options.length; i++) {
+                let optionHour = parseInt(jamPinjamSelect.options[i].value.split(':')[0]);
+                if (optionHour < hour) {
+                    jamPinjamSelect.options[i].disabled = true;
+                } else {
+                    jamPinjamSelect.options[i].disabled = false;
+                }
+            }
+        }
+    }
+    </script>
+</body>
+</html>
